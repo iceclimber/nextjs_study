@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../styles/style'
+import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../styles/index'
 
 export default function Home() {
   return (
@@ -64,4 +64,15 @@ export default function Home() {
       </Footer>
     </Container>
   )
+}
+
+export async function getStaticProps() {
+  let pokemon_list = []
+  pokemon_list = await fetch(`${process.env.APP_URL}/api/pokemon_list`)
+  pokemon_list = await pokemon_list.json()
+  return {
+    props: {
+      pokemon_list
+    }
+  }
 }
