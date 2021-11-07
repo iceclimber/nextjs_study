@@ -65,3 +65,14 @@ export default function Home() {
     </Container>
   )
 }
+
+export async function getStaticProps() {
+  let pokemon_list = []
+  pokemon_list = await fetch(`${process.env.APP_URL}/api/pokemon_list`)
+  pokemon_list = await pokemon_list.json()
+  return {
+    props: {
+      pokemon_list
+    }
+  }
+}
