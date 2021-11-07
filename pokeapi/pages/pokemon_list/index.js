@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from './style'
 
 export default function PokemonList({ pokemon_list }) {
@@ -13,40 +14,16 @@ export default function PokemonList({ pokemon_list }) {
 
             <MainSection>
                 <Title>
-                    Welcome to <LinkTitle href={"https://nextjs.org"}>Next.js!</LinkTitle>
+                    Clique na lista abaixo para ver as informações de um Pokemon
                 </Title>
 
-                <Paragraph>
-                    Get started by editing{' '}
-                    <Code>pages/index.js</Code>
-                </Paragraph>
 
                 <Grid>
-                    <GridCard href="https://nextjs.org/docs">
-                        <h2>Documentation &rarr;</h2>
-                        <p>Find in-depth information about Next.js features and API.</p>
-                    </GridCard>
-
-                    <GridCard href="https://nextjs.org/learn">
-                        <h2>Learn &rarr;</h2>
-                        <p>Learn about Next.js in an interactive course with quizzes!</p>
-                    </GridCard>
-
-                    <GridCard
-                        href="https://github.com/vercel/next.js/tree/master/examples"
-                    >
-                        <h2>Examples &rarr;</h2>
-                        <p>Discover and deploy boilerplate example Next.js projects.</p>
-                    </GridCard>
-
-                    <GridCard
-                        href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    >
-                        <h2>Deploy &rarr;</h2>
-                        <p>
-                            Instantly deploy your Next.js site to a public URL with Vercel.
-                        </p>
-                    </GridCard>
+                    {pokemon_list.map((pokemon) => {
+                        return <GridCard key={`GridCard_${pokemon.name}`}><Link href={`/pokemon/${pokemon.name}`} passHref={true} key={pokemon.name}>
+                            <h2>{pokemon.name}</h2>
+                        </Link></GridCard>
+                    })}
                 </Grid>
             </MainSection>
 
@@ -62,7 +39,7 @@ export default function PokemonList({ pokemon_list }) {
                     </Logo>
                 </a>
             </Footer>
-        </Container>
+        </Container >
     )
 }
 

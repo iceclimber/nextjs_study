@@ -68,6 +68,7 @@ export const GridCard = styled.a`
   color: inherit;
   text-decoration: none;
   border: 1px solid #eaeaea;
+  cursor: pointer;
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   max-width: 300px;
