@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from './style'
+import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../../styles/pokemon_info'
 
 export default function Home({ pokemon_info }) {
 

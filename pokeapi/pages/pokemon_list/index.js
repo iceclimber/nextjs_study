@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from './style'
+import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../../styles/pokemon_list'
 
 export default function PokemonList({ pokemon_list }) {
     return (
