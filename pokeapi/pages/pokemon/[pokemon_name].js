@@ -17,6 +17,11 @@ export default function Home({ pokemon_info }) {
         }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
     return (
         <Container >
+            <Head>
+                <title>{`Dados do Pokemon ${pokemon_info.name}`}</title>
+                <meta name="description" content={`Dados do Pokemon ${pokemon_info.name} vindo PokeAPI`} />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <MainSection>
                 <Title>
                     {pokemon_info.name}
