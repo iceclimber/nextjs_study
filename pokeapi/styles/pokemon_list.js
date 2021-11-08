@@ -4,6 +4,15 @@ export const Container = styled.div`
     padding: 0 2rem;
 `
 
+export const SearchInput = styled.input`
+  width: 100%;
+  height: 45px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px 0px 20px;
+`
+
 export const MainSection = styled.main`
   min-height: 100vh;
   padding: 4rem 0;
@@ -53,6 +62,7 @@ export const Grid = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+  ${props => props.withWidth ? 'width: 100%;' : ''}
   @media (max-width: 600px) {
     .grid {
       width: 100%;

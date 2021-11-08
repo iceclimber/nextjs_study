@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Container, MainSection, Title, LinkTitle, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../../styles/pokemon_list'
-
+import { Container, MainSection, Title, SearchInput, Paragraph, Code, Grid, GridCard, Footer, Logo } from '../../styles/pokemon_list'
+import { useState } from 'react'
 export default function PokemonList({ pokemon_list }) {
+    const [search, setSearch] = useState('')
     return (
         <Container >
             <Head>
@@ -17,10 +18,14 @@ export default function PokemonList({ pokemon_list }) {
                     Clique na lista abaixo para ver as informações de um Pokemon
                 </Title>
 
-
+                <Grid withWidth>
+                    <SearchInput placeholder="Digite um termo para filtar a lista" onChange={(ev) => setSearch(ev.target.value)} />
+                </Grid>
                 <Grid>
                     {pokemon_list.map((pokemon) => {
-                        return <GridCard key={`GridCard_${pokemon.name}`}><Link href={`/pokemon/${pokemon.name}`} passHref={true} key={pokemon.name}>
+                        return search.length ? pokemon.name.indexOf(search) > -1 && <GridCard key={`GridCard_${pokemon.name}`}><Link href={`/pokemon/${pokemon.name}`} passHref={true} key={pokemon.name}>
+                            <h2>{pokemon.name}</h2>
+                        </Link></GridCard> : <GridCard key={`GridCard_${pokemon.name}`}><Link href={`/pokemon/${pokemon.name}`} passHref={true} key={pokemon.name}>
                             <h2>{pokemon.name}</h2>
                         </Link></GridCard>
                     })}
