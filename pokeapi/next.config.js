@@ -1,4 +1,8 @@
 module.exports = {
+  i18n: {
+    locales: ['pt', 'en', 'es'],
+    defaultLocale: 'pt'
+  },
   reactStrictMode: true,
   images: {
     domains: ['raw.githubusercontent.com']
