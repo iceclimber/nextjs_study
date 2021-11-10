@@ -28,7 +28,6 @@ export default function Home({ pokemon_info }) {
                 </Title>
                 <Image placeholder={'blur'} alt={`imagem do pokemon ${pokemon_info.name}`} src={`${pokemon_info.sprites.front_default}`} width={500} height={500} blurDataURL={`${rgbDataURL(200, 200, 200)}`} />
             </MainSection>
-            {JSON.stringify(pokemon_info, null, 2)}
         </Container>
 
     )
